@@ -1,0 +1,31 @@
+<%= grid(@attendences_grid , show_filters: :no) do |g|
+
+  g.column name: 'User Name' , attribute: 'user_id' do |task|
+    task.user.username rescue nil
+  end
+
+  g.column name: 'Time In' ,attribute: 'time_in' do |task|
+    task.time_in
+  end
+
+  g.column name: 'Time Out' ,attribute: 'time_in'  do |task|
+    task.time_out
+  end
+
+  g.column name: 'Total Time(Hr)' do |task|
+   
+    if  ((task.time_out - task.time_in) / 3600 ).to_i > 10 
+      ["Suberb" , {style: 'background-color:  rgb(255, 255,0)'}]
+      
+    elsif  ((task.time_out - task.time_in) / 3600 ).to_i > 8 &&  ((task.time_out - task.time_in) / 3600 ).to_i < 10
+      ["Average" , {style: 'background-color:  rgb(255, 165,0)'}]
+     
+    else  ((task.time_out - task.time_in) / 3600 ).to_i < 8 
+      ["Bad" , {style: 'background-color:  rgb(255, 0,0)'}]
+    end
+
+  end
+    
+end -%>
+
+<%= render 'new_attendence' %>

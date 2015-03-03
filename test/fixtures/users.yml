@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_name: MyString
+  password: MyString
+  dob: 2014-07-18
+  dependent: 1
+
+two:
+  user_name: MyString
+  password: MyString
+  dob: 2014-07-18
+  dependent: 1
